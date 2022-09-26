@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #E5E5E5;
+}
+
+* {
+  font-family: 'Inter', system-ui;
+}
+
+.wrapper {
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  max-width: 1080px;
+  margin: 50px auto;
+}
+
+
+.contant {
+
+  h1 {
+    margin: 0;
+  }
+}
+
+.cartEmpty{
+  text-align: center;
+
+  p{
+    width: 280px;
+    line-height: 24px;
+  }
+
+  .greenButton{
+    width: 245px;
+    margin-top: 20px;
+
+    
+    &:hover{
+      img{
+        transform: rotate(180deg) translateX(3px);
+      }
+    }
+
+    img{
+      position: relative;
+      top: 1px;
+      transform: rotate(180deg);
+      margin-right: 15px;
+      transition: transforme 0.15s ease-in-out;
+    }
+  }
+
+}
+
+.search-block {
+  border: 1px solid #f3f3f3;
+  border-radius: 10px;
+  padding: 0 15px;
+  position: relative;
+
+  .clear{
+    position: absolute;
+    right: 15px;
+    width: 18px;
+    height: 18px;
+    top: 13px;
+    cursor: pointer;
+  }
+
+  input {
+    border: 0;
+    padding: 13px;
+    font-size: 16px;
+    width: 200px;
+  }
+}
+
+.sneakers-wraper{
+  display: flex;
+  flex-wrap: wrap;
+}
