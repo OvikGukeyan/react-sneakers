@@ -131,7 +131,7 @@ function App() {
               removeFromeCart={removeFromeCart}
               isLoading={isLoading}
             />}
-            path='/'
+            path=''
           />
           <Route
             path='orders'
