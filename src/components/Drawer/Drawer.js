@@ -33,7 +33,7 @@ const Drawer = ({ hendleCart, inCart, removeFromeCart, opened}) => {
             
 
         } catch (error) {
-            alert('Error')
+            alert('Error order')
         }
         setOrderLoading(false);
     }
@@ -84,7 +84,7 @@ const Drawer = ({ hendleCart, inCart, removeFromeCart, opened}) => {
                         :
                         <Inform 
                             title={OrderProcessed ? 'Order is processed' : 'Cart is empty'}
-                            image={OrderProcessed ? 'order-is-processed.jpg' : '/img/empty_cart.jpg'}
+                            image={OrderProcessed ? '/img/order-is-processed.jpg' : '/img/empty_cart.jpg'}
                             discription={OrderProcessed ? `Your order #${orderId} will handed over to the delivery service soon` : 'Add a product'}/>
                         
                 }
