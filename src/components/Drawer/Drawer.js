@@ -41,7 +41,7 @@ const Drawer = ({ hendleCart, inCart, removeFromeCart, opened}) => {
     return (
         <div className={`overlay ${opened ? 'overlayVisible' : ''}`}>
             <div className='drawer'>
-                <h2 className='mb-30 d-flex justify-between '>Your Cart<img onClick={hendleCart} className='cu-p' src='/img/btn-remowe.svg' alt='remove' /></h2>
+                <h2 className='mb-30 d-flex justify-between '>Your Cart<img onClick={hendleCart} className='cu-p' src='img/btn-remowe.svg' alt='remove' /></h2>
 
 
                 {
@@ -57,7 +57,7 @@ const Drawer = ({ hendleCart, inCart, removeFromeCart, opened}) => {
                                             <p className='mb-5'>{obj.name}</p>
                                             <b>{obj.price} UAH</b>
                                         </div>
-                                        <img onClick={() => removeFromeCart(obj)} className='removeBtn' src='/img/btn-remowe.svg' alt='remove' />
+                                        <img onClick={() => removeFromeCart(obj)} className='removeBtn' src='img/btn-remowe.svg' alt='remove' />
                                     </div>
                                 ))}
                             </div>
@@ -76,7 +76,7 @@ const Drawer = ({ hendleCart, inCart, removeFromeCart, opened}) => {
                                     </li>
                                 </ul>
 
-                                <button disabled={orderLoading} onClick={hendleOrder} className='greenButton'>Checkout <img src='/img/row.svg' /></button>
+                                <button disabled={orderLoading} onClick={hendleOrder} className='greenButton'>Checkout <img src='img/row.svg' /></button>
                             </div>
 
                         </div>
@@ -84,7 +84,7 @@ const Drawer = ({ hendleCart, inCart, removeFromeCart, opened}) => {
                         :
                         <Inform 
                             title={OrderProcessed ? 'Order is processed' : 'Cart is empty'}
-                            image={OrderProcessed ? '/img/order-is-processed.jpg' : '/img/empty_cart.jpg'}
+                            image={OrderProcessed ? 'img/order-is-processed.jpg' : 'img/empty_cart.jpg'}
                             discription={OrderProcessed ? `Your order #${orderId} will handed over to the delivery service soon` : 'Add a product'}/>
                         
                 }

@@ -34,7 +34,7 @@ const Card = ({ perentId, price, name, img, addToCart, addToFavorites, loading }
                 </ContentLoader> :
                     <>
                         <div className='favorite'>
-                            {addToFavorites && <img onClick={hendleOnFavorite} alt='favorite' src={itemIsElected(perentId) ? '/img/heart-liked.svg' : '/img/heart-unliked.svg'}></img>}
+                            {addToFavorites && <img onClick={hendleOnFavorite} alt='favorite' src={itemIsElected(perentId) ? 'img/heart-liked.svg' : 'img/heart-unliked.svg'}></img>}
                         </div>
                         <img height={112} width={133} src={img} />
                         <h5>{name}</h5>
@@ -43,7 +43,7 @@ const Card = ({ perentId, price, name, img, addToCart, addToFavorites, loading }
                                 <span>Price:</span>
                                 <b> {price} UAH</b>
                             </div>
-                            {addToCart && <img onClick={hendleAddClick} className='cu-p' alt='plus' src={itemIsAdded(perentId) ? '/img/btn-cheked.svg' : '/img/btn-plus.svg'} />}
+                            {addToCart && <img onClick={hendleAddClick} className='cu-p' alt='plus' src={itemIsAdded(perentId) ? 'img/btn-cheked.svg' : 'img/btn-plus.svg'} />}
                         </div>
                     </>
             }

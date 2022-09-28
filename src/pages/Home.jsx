@@ -25,8 +25,8 @@ const Home = ({stock, search, setSearch, addToFavorites, removeFromeFavorites, a
             <div className='d-flex justify-between align-center mb-40'>
                 <h1>{search ? `Find '${search}'` : 'All Sneakers'} </h1>
                 <div className='search-block d-flex'>
-                    <img src='/img/search.svg' alt='search' />
-                    {search && <img onClick={() => setSearch('')} className='clear ' src='/img/btn-remowe.svg' alt='remove' />}
+                    <img src='img/search.svg' alt='search' />
+                    {search && <img onClick={() => setSearch('')} className='clear ' src='img/btn-remowe.svg' alt='remove' />}
                     <input onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Search ...' />
                 </div>
             </div>
