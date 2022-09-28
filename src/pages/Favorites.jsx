@@ -2,8 +2,8 @@ import Card from '../components/Card/Card'
 import { useContext } from "react";
 import AppContext from '../context';
 
-const Favorites = ({ addToCart, removeFromeCart }) => {
-    const { favorites, addToFavorites } = useContext(AppContext)
+const Favorites = ({ addToCart  }) => {
+    const { favorites } = useContext(AppContext)
 
     return (
         <div className='contant p-40'>
@@ -16,10 +16,7 @@ const Favorites = ({ addToCart, removeFromeCart }) => {
                     <Card
                         {...obj}
                         key={obj.id}
-                        elected={true}
                         addToCart={() => addToCart(obj)}
-                        addToFavorites={() => addToFavorites(obj)}
-                        removeFromeCart={() => removeFromeCart(obj)}
                     />
                 ))}
             </div>

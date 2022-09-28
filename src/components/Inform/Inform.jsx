@@ -10,7 +10,7 @@ const Inform = ({title, discription, image}) => {
             <img className='mb-20' width={120}  src={image} alt='empty-cart' />
             <h2>{title}</h2>
             <p className='opacity-6'>{discription}</p>
-            <button onClick={hendleCart} className='greenButton'><img src='img/row.svg' /> Back </button>
+            <button onClick={hendleCart} className='greenButton'><img src='/img/row.svg' /> Back </button>
         </div>
 
     )

@@ -3,16 +3,15 @@ import { useState, useContext } from 'react';
 import ContentLoader from "react-content-loader";
 import AppContext from '../../context';
 
-const Card = ({ id, price, name, img, addToCart, addToFavorites, elected, loading }) => {
-    const [favorite, setFavorite] = useState(elected);
+const Card = ({ perentId, price, name, img, addToCart, addToFavorites, loading }) => {
     const {itemIsAdded} = useContext(AppContext);
+    const {itemIsElected} = useContext(AppContext);
 
     const hendleAddClick = () => {
         addToCart();
     }
 
     const hendleOnFavorite = () => {
-        setFavorite(!favorite);
         addToFavorites();
     }
 
@@ -35,7 +34,7 @@ const Card = ({ id, price, name, img, addToCart, addToFavorites, elected, loadin
                 </ContentLoader> :
                     <>
                         <div className='favorite'>
-                            {addToFavorites && <img onClick={hendleOnFavorite} alt='favorite' src={favorite ? 'img/heart-liked.svg' : 'img/heart-unliked.svg'}></img>}
+                            {addToFavorites && <img onClick={hendleOnFavorite} alt='favorite' src={itemIsElected(perentId) ? '/img/heart-liked.svg' : '/img/heart-unliked.svg'}></img>}
                         </div>
                         <img height={112} width={133} src={img} />
                         <h5>{name}</h5>
@@ -44,7 +43,7 @@ const Card = ({ id, price, name, img, addToCart, addToFavorites, elected, loadin
                                 <span>Price:</span>
                                 <b> {price} UAH</b>
                             </div>
-                            {addToCart && <img onClick={hendleAddClick} className='cu-p' alt='plus' src={itemIsAdded(id) ? 'img/btn-cheked.svg' : 'img/btn-plus.svg'} />}
+                            {addToCart && <img onClick={hendleAddClick} className='cu-p' alt='plus' src={itemIsAdded(perentId) ? '/img/btn-cheked.svg' : '/img/btn-plus.svg'} />}
                         </div>
                     </>
             }

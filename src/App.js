@@ -48,16 +48,27 @@ function App() {
 
   const addToFavorites = async (obj) => {
     try {
-      if (favorites.find(favObj => favObj.id === obj.id)) {
-        axios.delete(`https://631989306b4c78d91b3d799c.mockapi.io/sneakers_favorites/${obj.id}`)
-        setFavorites(prev => prev.filter(item => item.id !== obj.id))
+      const findItem = favorites.find(item => Number(item.perentId) === Number(obj.id))
+      if (findItem) {
+        setFavorites(prev => prev.filter(item => Number(item.perentId) !== Number(obj.id)))
+        await axios.delete(`https://631989306b4c78d91b3d799c.mockapi.io/sneakers_favorites/${findItem.id}`)
       } else {
+        setFavorites([...favorites, obj]);
         const { data } = await axios.post('https://631989306b4c78d91b3d799c.mockapi.io/sneakers_favorites', obj)
-        setFavorites([...favorites, data]);
+        setFavorites((prev) => prev.map(item => {
+          if(item.perentId === obj.perentId) {
+            return {
+              ...item,
+              id: data.id
+            }
+          }
+          return item;
+        }))
       }
 
     } catch (error) {
       alert('Error')
+      console.error(error);
     }
   }
 
@@ -65,9 +76,9 @@ function App() {
 
   const addToCart = async (obj) => {
     try {
-      const findItem = inCart.find(item => Number(item.perentId) === Number(obj.id))
+      const findItem = inCart.find(item => Number(item.perentId) === Number(obj.perentId))
       if (findItem) {
-        setInCart(prev => prev.filter(item => Number(item.perentId) !== Number(obj.id)))
+        setInCart(prev => prev.filter(item => Number(item.perentId) !== Number(obj.perentId)))
         await axios.delete(`https://631989306b4c78d91b3d799c.mockapi.io/sneakers_cart/${findItem.id}`)
       } else {
         setInCart([...inCart, obj]);
@@ -81,9 +92,7 @@ function App() {
           }
           return item;
         }))
-        
       }
-  
     } catch (error) {
       alert('error in addToCart');
       console.error(error);
@@ -104,12 +113,17 @@ function App() {
   const hendleCart = () => {
     setOpenCart(!openCart)
   }
+
+  const itemIsElected = (id) => {
+    return favorites.some(item => Number(item.perentId) === Number(id))
+  }
+
   const itemIsAdded = (id) => {
 
     return inCart.some(item => Number(item.perentId) === Number(id))
   }
   return (
-    <AppContext.Provider value={{ stock, inCart, favorites, itemIsAdded, addToFavorites, hendleCart, setInCart }}>
+    <AppContext.Provider value={{ stock, inCart, favorites, itemIsAdded, addToFavorites, hendleCart, setInCart, itemIsElected }}>
       <div className="wrapper clear">
         <Drawer
           inCart={inCart}
