@@ -72,7 +72,7 @@ const Drawer = ({ hendleCart, inCart, removeFromeCart, opened}) => {
                                     <li>
                                         <span>Tax 5%:</span>
                                         <div></div>
-                                        <b>{totalPrice / 100 * 5} UAH</b>
+                                        <b>{(totalPrice / 100 * 5).toFixed(2)} UAH</b>
                                     </li>
                                 </ul>
 
