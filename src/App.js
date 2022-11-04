@@ -24,9 +24,9 @@ function App() {
 
       try {
         const [cartResp, favoritesResp, stockResp] = await Promise.all([
-          axios.get('https://631989306b4c78d91b3d799c.mockapi.io/sneakers_cart'),
-          axios.get('https://631989306b4c78d91b3d799c.mockapi.io/sneakers_favorites'),
-          axios.get('https://631989306b4c78d91b3d799c.mockapi.io/sneakers')
+          axios.get('https://6364d85c7b209ece0f4fcc02.mockapi.io/sneakers_cart'),
+          axios.get('https://6364d85c7b209ece0f4fcc02.mockapi.io/sneakers_favorites'),
+          axios.get('https://6364d85c7b209ece0f4fcc02.mockapi.io/sneakers')
         ])
        
 
@@ -51,10 +51,10 @@ function App() {
       const findItem = favorites.find(item => Number(item.perentId) === Number(obj.id))
       if (findItem) {
         setFavorites(prev => prev.filter(item => Number(item.perentId) !== Number(obj.id)))
-        await axios.delete(`https://631989306b4c78d91b3d799c.mockapi.io/sneakers_favorites/${findItem.id}`)
+        await axios.delete(`https://6364d85c7b209ece0f4fcc02.mockapi.io/sneakers_favorites/${findItem.id}`)
       } else {
         setFavorites([...favorites, obj]);
-        const { data } = await axios.post('https://631989306b4c78d91b3d799c.mockapi.io/sneakers_favorites', obj)
+        const { data } = await axios.post('https://6364d85c7b209ece0f4fcc02.mockapi.io/sneakers_favorites', obj)
         setFavorites((prev) => prev.map(item => {
           if(item.perentId === obj.perentId) {
             return {
@@ -79,10 +79,10 @@ function App() {
       const findItem = inCart.find(item => Number(item.perentId) === Number(obj.perentId))
       if (findItem) {
         setInCart(prev => prev.filter(item => Number(item.perentId) !== Number(obj.perentId)))
-        await axios.delete(`https://631989306b4c78d91b3d799c.mockapi.io/sneakers_cart/${findItem.id}`)
+        await axios.delete(`https://6364d85c7b209ece0f4fcc02.mockapi.io/sneakers_cart/${findItem.id}`)
       } else {
         setInCart([...inCart, obj]);
-        const {data} = await axios.post('https://631989306b4c78d91b3d799c.mockapi.io/sneakers_cart', obj);
+        const {data} = await axios.post('https://6364d85c7b209ece0f4fcc02.mockapi.io/sneakers_cart', obj);
         setInCart((prev) => prev.map(item => {
           if(item.perentId === obj.perentId) {
             return {
@@ -105,7 +105,7 @@ function App() {
 
 
   const removeFromeCart = (obj) => {
-    axios.delete(`https://631989306b4c78d91b3d799c.mockapi.io/sneakers_cart/${obj.id}`)
+    axios.delete(`https://6364d85c7b209ece0f4fcc02.mockapi.io/sneakers_cart/${obj.id}`)
     setInCart(prev => prev.filter((unit) => unit.id !== obj.id));
 
   }

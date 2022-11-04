@@ -20,14 +20,14 @@ const Drawer = ({ hendleCart, inCart, removeFromeCart, opened}) => {
     const hendleOrder = async () => {
         try {
             setOrderLoading(true);
-            const {data} = await axios.post('https://631989306b4c78d91b3d799c.mockapi.io/orders', {items: inCart});
+            const {data} = await axios.post('https://6364d85c7b209ece0f4fcc02.mockapi.io/orders', {items: inCart});
             setOrderId(data.id)
             setOrderProcessed(true);
             setInCart([]);
 
             for(let i = 0; i < inCart.length; i++) {
                 const item = inCart[i];
-                await axios.delete(`https://631989306b4c78d91b3d799c.mockapi.io/sneakers_cart/` + item.id);
+                await axios.delete(`https://6364d85c7b209ece0f4fcc02.mockapi.io/sneakers_cart/` + item.id);
                 await dilay(1000);
             }
             
